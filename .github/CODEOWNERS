@@ -1,0 +1,22 @@
+# Backend / System Owner
+/server/ @rangeshsha-Rookie
+/ai-engine/ @rangeshsha-Rookie
+/blockchain/ @rangeshsha-Rookie
+/n8n/ @rangeshsha-Rookie
+/.env.example @rangeshsha-Rookie
+/docs/ARCHITECTURE.md @rangeshsha-Rookie
+/docs/SECURITY.md @rangeshsha-Rookie
+
+# Driver UI (Ryan)
+client/src/dashboards/driver/ @RyanKeshary
+
+# Manager UI (Ansh)
+client/src/dashboards/manager/ @anshjaiswal2911-tech
+
+# Admin UI (Rajiv)
+client/src/dashboards/admin/ @jharjiv315
+
+# Shared code: require Rangesh review
+client/src/components/ @rangeshsha-Rookie
+client/src/services/ @rangeshsha-Rookie
+client/src/store/ @rangeshsha-Rookie
