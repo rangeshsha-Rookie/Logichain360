@@ -44,7 +44,7 @@ jobs:
 
       - name: Install server dependencies
         working-directory: server
-        run: npm install      
+        run: npm install
 
       - name: Install blockchain dependencies
         working-directory: blockchain
@@ -117,4 +117,3 @@ jobs:
       - name: Build blockchain
         working-directory: blockchain
         run: npm run build --if-present
-
