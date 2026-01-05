@@ -16,4 +16,8 @@ async function connectRedis() {
   }
 }
 
+<<<<<<< HEAD
 module.exports = { redis, connectRedis };
+=======
+module.exports = { redis, connectRedis };
+>>>>>>> 7b6aeaf73626b0f61b4b82befd570c2302dcb253

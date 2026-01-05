@@ -23,4 +23,8 @@ const ShipmentSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now }
 }, { timestamps: true });
 
+<<<<<<< HEAD
 module.exports = mongoose.model('Shipment', ShipmentSchema);
+=======
+module.exports = mongoose.model('Shipment', ShipmentSchema);
+>>>>>>> 7b6aeaf73626b0f61b4b82befd570c2302dcb253

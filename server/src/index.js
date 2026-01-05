@@ -57,4 +57,8 @@ async function start() {
   }
 }
 
+<<<<<<< HEAD
 start();
+=======
+start();
+>>>>>>> 7b6aeaf73626b0f61b4b82befd570c2302dcb253

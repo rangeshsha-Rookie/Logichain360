@@ -28,4 +28,8 @@ function rateLimit({ windowSec = 60, max = 60, keyPrefix = 'rl:' } = {}) {
   };
 }
 
+<<<<<<< HEAD
 module.exports = rateLimit;
+=======
+module.exports = rateLimit;
+>>>>>>> 7b6aeaf73626b0f61b4b82befd570c2302dcb253

@@ -116,4 +116,8 @@ jobs:
 
       - name: Build blockchain
         working-directory: blockchain
+<<<<<<< HEAD
         run: npm run build --if-present
+=======
+        run: npm run build --if-present
+>>>>>>> 7b6aeaf73626b0f61b4b82befd570c2302dcb253
