@@ -1,0 +1,35 @@
+{
+  "name": "logichain360-blockchain",
+  "version": "1.0.0",
+  "description": "Blockchain smart contracts for LogiChain360 - Polygon Mumbai testnet",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "hardhat run scripts/deploy.js --network mumbai",
+    "lint": "solhint contracts/**/*.sol",
+    "build": "hardhat compile"
+  },
+  "keywords": [
+    "blockchain",
+    "ethereum",
+    "solidity",
+    "hardhat",
+    "polygon"
+  ],
+  "author": "LogiChain360",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "hardhat": "^2.19.0",
+    "solhint": "^4.0.0",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "chai": "^4.3.10",
+    "ethers": "^6.7.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.0",
+    "web3": "^1.10.0"
+  }
+}
