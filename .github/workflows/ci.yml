@@ -44,11 +44,11 @@ jobs:
 
       - name: Install server dependencies
         working-directory: server
-        run: npm ci
+        run: npm install      
 
       - name: Install blockchain dependencies
         working-directory: blockchain
-        run: npm ci
+        run: npm install
 
       - name: Lint (server)
         working-directory: server
@@ -76,11 +76,11 @@ jobs:
 
       - name: Install server deps
         working-directory: server
-        run: npm ci
+        run: npm install
 
       - name: Install blockchain deps
         working-directory: blockchain
-        run: npm ci
+        run: npm install
 
       - name: Run server tests
         working-directory: server
@@ -104,11 +104,11 @@ jobs:
 
       - name: Install server deps
         working-directory: server
-        run: npm ci
+        run: npm install
 
       - name: Install blockchain deps
         working-directory: blockchain
-        run: npm ci
+        run: npm install
 
       - name: Build server
         working-directory: server
