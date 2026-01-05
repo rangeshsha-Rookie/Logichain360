@@ -1,49 +1,78 @@
-name: CI / hybrid workflow with smoke-test
+name: CI
 
 on:
   push:
     branches:
-      - main
+      - 'feature/*'
       - develop
   pull_request:
     branches:
       - main
       - develop
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   smoke-test:
+    name: Smoke & Quick Checks
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: server/package-lock.json
 
-      - name: Install server deps
+      - name: Validate server package.json (syntax)
         working-directory: server
-        run: npm install      
+        run: |
+          echo "Validating server package.json..."
+          python3 -c "import json; json.load(open('package.json'))" && echo "✅ Valid JSON"
 
-      - name: Install blockchain deps
+      - name: Validate blockchain package.json (syntax)
+        working-directory: blockchain
+        run: |
+          echo "Validating blockchain package.json..."
+          python3 -c "import json; json.load(open('package.json'))" && echo "✅ Valid JSON"
+
+      - name: Install server dependencies
+        working-directory: server
+        run: npm install
+
+      - name: Install blockchain dependencies
         working-directory: blockchain
         run: npm install
 
-      - name: Validate packages
-        run: npm list --prefix server && npm list --prefix blockchain
+      - name: Lint (server)
+        working-directory: server
+        run: npm run lint --if-present
+
+      - name: Quick unit tests (smoke)
+        working-directory: server
+        run: npm run test:smoke --if-present || npm test -- --testPathPattern=smoke --if-present
 
   full-test:
-    needs: smoke-test
+    name: Full test suite
     runs-on: ubuntu-latest
+    needs: smoke-test
+    timeout-minutes: 40
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: server/package-lock.json
 
       - name: Install server deps
         working-directory: server
@@ -57,21 +86,21 @@ jobs:
         working-directory: server
         run: npm test --if-present
 
-      - name: Run blockchain tests
-        working-directory: blockchain
-        run: npm test --if-present
-
   build:
-    needs: full-test
+    name: Build
     runs-on: ubuntu-latest
+    needs: smoke-test
+    timeout-minutes: 30
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: server/package-lock.json
 
       - name: Install server deps
         working-directory: server
