@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "logichain360",
   "version": "1.0.0",
   "description": "End-to-end Smart Logistics Management Platform  \r HackNova 2026",
@@ -13,32 +12,16 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rangeshsha-Rookie/Logichain360.git"
-=======
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/index.js",
-  "directories": {
-    "test": "tests"
-  },
-  "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js",
-    "test": "echo \"No tests yet\" && exit 0"
->>>>>>> 7b6aeaf73626b0f61b4b82befd570c2302dcb253
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-<<<<<<< HEAD
   "bugs": {
     "url": "https://github.com/rangeshsha-Rookie/Logichain360/issues"
   },
-  "homepage": "https://github.com/rangeshsha-Rookie/Logichain360#readme"
-}
-=======
-  "devDependencies": {
+"homepage": "https://github.com/rangeshsha-Rookie/Logichain360#readme",
+"devDependencies": {
     "nodemon": "^3.1.11"
   },
   "dependencies": {
@@ -56,4 +39,3 @@
     "stripe": "^20.1.0"
   }
 }
->>>>>>> 7b6aeaf73626b0f61b4b82befd570c2302dcb253
