@@ -1,74 +1,76 @@
-# 🚚 LogiChain360
-
 <div align="center">
 
-**End-to-end Smart Logistics Management Platform**
+# 🚚 LogiChain360
+### Blockchain-Integrated Supply Chain Optimization Platform
 
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
-[![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![Polygon](https://img.shields.io/badge/Polygon-8247E5?style=for-the-badge&logo=polygon&logoColor=white)](https://polygon.technology/)
-[![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socketdotio&logoColor=white)](https://socket.io/)
-[![Hardhat](https://img.shields.io/badge/Hardhat-fff100?style=for-the-badge&logo=hardhat&logoColor=black)](https://hardhat.org/)
-[![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io/)
+**Real-time shipment tracking, tamper-proof delivery milestones, and end-to-end supply chain transparency — powered by blockchain and AI-driven logistics automation.**
 
-*Built for HackNova 2026 — Monorepo · Full-Stack · Blockchain-Integrated*
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
+![Polygon](https://img.shields.io/badge/Polygon_Blockchain-8247E5?style=flat&logo=polygon&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
+![n8n](https://img.shields.io/badge/n8n_Automation-EF5B00?style=flat&logo=n8n&logoColor=white)
 
 </div>
 
 ---
 
-## 📖 Overview
+## 🎯 Research Context
 
-**LogiChain360** is a full-stack, blockchain-integrated logistics management platform that enables real-time shipment tracking, AI-powered route optimization, and tamper-proof delivery verification on the Polygon blockchain. Built as a monorepo serving four distinct user roles — Driver, Manager, Admin, and Client — the platform unifies every touchpoint of the supply chain into a single, transparent ecosystem.
+LogiChain360 addresses a core challenge in modern supply chain management: **the lack of real-time, verifiable, and tamper-proof data across multi-party logistics networks**.
 
-The platform eliminates trust issues in logistics by anchoring key delivery milestones to immutable smart contracts, giving clients verifiable proof-of-delivery and giving operators live operational visibility.
+This project is directly aligned with India's **PM Gati Shakti National Master Plan** — which aims to integrate infrastructure planning across 16 ministries to eliminate logistics inefficiencies. Key research problems this project engages with:
 
----
+- **Supply chain visibility** — How do you create an immutable, auditable trail across fragmented logistics networks?
+- **Optimization under uncertainty** — How can AI-driven route and status prediction reduce delivery delays?
+- **Blockchain for industrial trust** — How does decentralized ledger technology create verifiable delivery milestones without central authority?
 
-## ✨ Key Features
-
-- 🗺️ **Real-Time Shipment Tracking** — Live GPS updates via Socket.io with driver position synced across all dashboards
-- ⛓️ **Blockchain Delivery Verification** — Smart contracts on Polygon Mumbai record delivery milestones tamper-proof using Solidity + Hardhat
-- 🤖 **AI Engine** — Route optimization and demand prediction powered by an embedded AI engine
-- 🧑‍💼 **Multi-Role Dashboard System** — Separate, role-specific UIs for Drivers, Managers, Admins, and Clients
-- 💳 **Stripe Payment Integration** — Secure payment processing for logistics services
-- 🔐 **JWT Authentication** — Secure auth with bcrypt password hashing and role-based access control
-- ⚡ **Redis Caching** — High-performance caching layer for frequently accessed logistics data
-- 🔄 **n8n Workflow Automation** — Automated logistics workflows using n8n for notifications, escalations, and pipeline triggers
-- 📁 **File Upload Support** — Multer-based document/image uploads (proof-of-delivery, manifests)
-- 📡 **WebSocket Real-Time Events** — Instant status updates for all connected clients via Socket.io
+This platform was built as an applied systems prototype exploring these questions at the intersection of **blockchain technology, supply chain optimization, and AI automation**.
 
 ---
 
-## 🏗️ Architecture
+## 🧩 Problem → Approach → Outcome
 
-LogiChain360 follows a **monorepo architecture** with clearly separated concerns:
+| | |
+|---|---|
+| **Problem** | Supply chains across India's logistics sector suffer from fragmented visibility, unverifiable delivery claims, and manual tracking systems prone to data manipulation and delays. |
+| **Approach** | Built a full-stack platform combining blockchain-backed milestone logging (Polygon), real-time shipment dashboards, and n8n-powered automation workflows to orchestrate multi-step logistics processes without manual intervention. |
+| **Outcome** | Delivered a prototype platform providing tamper-proof shipment records, real-time tracking dashboards, and automated status notifications — demonstrating how blockchain transparency can reduce logistics fraud and improve accountability. |
+
+---
+
+## 🚀 Key Features
+
+- **⛓️ Blockchain Milestone Logging** — Every delivery status update is written to Polygon blockchain — immutable, auditable, and fraud-resistant
+- **📍 Real-Time Shipment Tracking** — Live dashboard showing shipment location, ETA, and status across the supply chain
+- **🤖 AI Engine** — Intelligent routing and anomaly detection for flagging shipment delays and irregularities
+- **⚙️ n8n Workflow Automation** — Automated alerts, status broadcasts, and inter-system data sync without manual triggers
+- **📊 Supply Chain Analytics Dashboard** — Aggregate visibility into delivery performance, bottlenecks, and SLA compliance
+- **🔒 Tamper-Proof Evidence** — Cryptographic proof of delivery, custody transfer, and milestone completion
+
+---
+
+## 🏗️ System Architecture
 
 ```
-logichain360/
-├── 📁 server/             # Express.js REST API backend
-│   ├── src/               # Core server application
-│   ├── routes/            # API route definitions
-│   ├── models/            # Mongoose data models
-│   ├── middleware/        # Auth, validation, error handling
-│   └── services/          # Business logic & external integrations
-│
-├── 📁 client/             # Frontend client applications
-│   └── src/               # Multi-role UI (Driver / Manager / Admin)
-│
-├── 📁 blockchain/         # Solidity smart contracts
-│   ├── contracts/         # Smart contract source files (.sol)
-│   ├── scripts/           # Deployment scripts
-│   ├── test/              # Contract test suite
-│   └── hardhat.config.js  # Hardhat network configuration
-│
-├── 📁 ai-engine/          # AI/ML route optimization module
-├── 📁 n8n/                # n8n workflow automation configs
-├── 📁 docs/               # Integration contracts & API documentation
-├── SETUP.md               # Full setup instructions
-└── CONTRIBUTING.md        # Contribution guidelines
+Client Dashboard (React)
+    │
+    ▼
+┌──────────────────────┐
+│   Node.js API Server      │
+│  ├─ Shipment Controller      │
+│  ├─ Tracking Engine          │
+│  └─ AI Route Optimizer       │
+└───────┬─────────────┘
+           │
+  ┌──────┴──────┐
+  ▼              ▼
+ MongoDB Atlas   Polygon Blockchain
+(shipment data)  (immutable milestones)
+  │
+  ▼
+n8n Automation Engine
+(alerts, workflows, integrations)
 ```
 
 ---
@@ -76,149 +78,62 @@ logichain360/
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
-|---|---|
-| **Backend** | Node.js, Express.js v5, CommonJS |
-| **Database** | MongoDB (Mongoose ODM) |
-| **Cache** | Redis |
-| **Real-Time** | Socket.io v4 |
-| **Blockchain** | Solidity, Hardhat, Polygon Mumbai Testnet |
-| **Smart Contract Libs** | OpenZeppelin Contracts v4, ethers.js v6 |
-| **Payments** | Stripe |
-| **Auth** | JWT (jsonwebtoken), bcrypt |
-| **Automation** | n8n |
-| **File Uploads** | Multer |
-| **HTTP Client** | Axios |
-| **Dev Tools** | Nodemon, solhint |
+|-------|------------|
+| Frontend | React, JavaScript |
+| Backend | Node.js, Express |
+| Blockchain | Polygon (Amoy Testnet) |
+| Database | MongoDB Atlas |
+| Automation | n8n Workflow Engine |
+| AI Engine | Custom route optimization & anomaly detection |
 
 ---
 
-## 👥 Team & Ownership
+## 🔍 Research Alignment
 
-| Role | Owner |
+This project engages with active research domains in supply chain management and logistics systems:
+
+| Research Domain | How LogiChain360 Addresses It |
 |---|---|
-| Backend / AI / Blockchain | **Rangesh** |
-| Driver UI | **Ryan** |
-| Manager UI | **Ansh** |
-| Admin UI | **Rajiv** |
+| **Supply chain transparency** | Blockchain-based milestone logging creates auditable, tamper-resistant delivery records |
+| **Logistics optimization** | AI engine models route efficiency and flags anomalies for intervention |
+| **Multi-party trust systems** | Decentralized ledger eliminates reliance on any single party for record-keeping |
+| **Automation in industrial systems** | n8n workflows demonstrate low-code orchestration of complex logistics processes |
+| **PM Gati Shakti alignment** | Addresses inter-ministry data fragmentation through a unified tracking layer |
 
 ---
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js v18+
-- MongoDB (local or MongoDB Atlas)
-- Redis (local or Redis Cloud)
-- MetaMask wallet (for blockchain features)
-- Stripe account (for payment features)
-
-### 1. Clone the Repository
+## ⚙️ Setup
 
 ```bash
+# 1. Clone the repository
 git clone https://github.com/rangeshsha-Rookie/Logichain360.git
 cd Logichain360
-```
 
-### 2. Install Root Dependencies
-
-```bash
+# 2. Install dependencies
 npm install
+
+# 3. Configure environment variables
+cp .env.example .env
+# Add MongoDB URI, Polygon RPC URL, and n8n webhook endpoints
+
+# 4. Run the development server
+npm run dev
 ```
 
-### 3. Setup & Run the Server
-
-```bash
-cd server
-npm install
-```
-
-Create a `.env` file in `server/`:
-
-```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-REDIS_URL=your_redis_url
-STRIPE_SECRET_KEY=your_stripe_secret_key
-BLOCKCHAIN_RPC_URL=your_polygon_rpc_url
-PRIVATE_KEY=your_wallet_private_key
-```
-
-```bash
-npm run dev     # Development with nodemon
-npm start       # Production
-```
-
-### 4. Setup & Deploy Smart Contracts
-
-```bash
-cd blockchain
-npm install
-npx hardhat compile
-npx hardhat test
-npx hardhat run scripts/deploy.js --network mumbai
-```
-
-### 5. Start the Client
-
-```bash
-cd client
-npm install
-npm start
-```
-
-### 6. n8n Automation (Optional)
-
-Import the workflow configs from `/n8n` into your n8n instance to enable automated logistics pipeline triggers and notifications.
-
-> See **[SETUP.md](./SETUP.md)** for the full detailed setup guide.
+See `SETUP.md` for full blockchain and n8n configuration instructions.
 
 ---
 
-## 🔗 API Overview
+## 🤝 Contributing
 
-The Express server exposes REST endpoints for:
-
-| Module | Base Path | Description |
-|---|---|---|
-| Auth | `/api/auth` | Login, Register, JWT refresh |
-| Shipments | `/api/shipments` | CRUD for logistics orders |
-| Drivers | `/api/drivers` | Driver management & location updates |
-| Blockchain | `/api/blockchain` | On-chain delivery record verification |
-| Payments | `/api/payments` | Stripe payment processing |
-| Admin | `/api/admin` | Platform administration |
-
-Real-time events are emitted via Socket.io for:
-- `shipment:update` — Live shipment status changes
-- `driver:location` — Driver GPS position updates
-- `delivery:confirmed` — Blockchain-anchored delivery confirmation
-
----
-
-## ⛓️ Smart Contracts
-
-Contracts are deployed on **Polygon Mumbai Testnet** and use **OpenZeppelin** for security patterns.
-
-Key contract functions:
-- `recordDeliveryMilestone()` — Write immutable checkpoint to chain
-- `verifyDelivery()` — Client-callable verification of delivery proof
-- `getShipmentHistory()` — Full on-chain audit trail for a shipment
-
----
-
-## 📄 License
-
-This project is licensed under the **ISC License** — see the [LICENSE](./package.json) field for details.
-
----
-
-## 🏆 Built At
-
-**HackNova 2026** — Smart Logistics Track
+See `CONTRIBUTING.md` for guidelines. Issues and PRs welcome.
 
 ---
 
 <div align="center">
-Made with ❤️ by the LogiChain360 Team
+
+Built by **Rangesh Gupta** · B.E. Computer Engineering (Data Science), SLRTCE · [GitHub Profile](https://github.com/rangeshsha-Rookie)
+
+*Exploring applied AI and blockchain for real-world supply chain problems.*
+
 </div>
